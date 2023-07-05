@@ -1,0 +1,60 @@
+.notice-board-container-main{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 5px;
+    border: 2px solid ​#ff4081;
+}
+.notice-board-container {
+    width: 400px;
+    overflow: hidden;
+
+  }
+  
+  .notice-board {
+    position: relative;
+    height: 400px; /* Adjust the height as per your design */
+    overflow: hidden;
+    
+  }
+  
+  .notice-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    animation: scroll-notice 20s linear infinite;
+  }
+  
+  .notice-board:hover .notice-list {
+    animation-play-state: paused;
+  }
+  
+  @keyframes scroll-notice {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: -100%;
+    }
+  }
+  
+  .notice {
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .notice h3 {
+    margin-top: 0;
+  }
+  
+  .notice p {
+    margin-bottom: 0;
+  }
+  
