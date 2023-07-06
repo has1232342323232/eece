@@ -80,4 +80,5 @@ const TeachersDetail = () => {
     );
 };
 
+
 export default TeachersDetail;

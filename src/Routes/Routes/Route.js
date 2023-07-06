@@ -10,6 +10,7 @@ import Alumni from "../../Pages/Alumni/Alumni";
 import AboutUs from "../../Pages/AboutUs/AboutUs";
 import Teachers from "../../Pages/Teachers/Teachers";
 import TeachersDetail from "../../Pages/Teachers/TeachersDetail/TeachersDetail";
+import Register from "../../Pages/Login/Register/Register";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             },
             {
                 path: '/showAllNotices',
