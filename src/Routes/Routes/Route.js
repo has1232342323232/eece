@@ -11,12 +11,22 @@ import AboutUs from "../../Pages/AboutUs/AboutUs";
 import Teachers from "../../Pages/Teachers/Teachers";
 import TeachersDetail from "../../Pages/Teachers/TeachersDetail/TeachersDetail";
 import Register from "../../Pages/Login/Register/Register";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DashboardLayout from "../../Layout/DashboardLayout";
+import Inbox from "../../Pages/Dashboard/Inbox/Inbox";
+import ManageNotice from "../../Pages/Dashboard/ManageNotice/ManageNotice";
+import ManageNewsAndEvents from "../../Pages/Dashboard/ManageNewsAndEvents/ManageNewsAndEvents";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element : <Main></Main>,
         children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
             {
                 path: '/home',
                 element: <Home></Home>
@@ -57,10 +67,38 @@ const router = createBrowserRouter([
                 path: '/teachers',
                 element: <Teachers></Teachers>
             },
+
             {
                 path: '/faculty-profile/:id',
                 element: <TeachersDetail></TeachersDetail>
             },
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/inbox',
+                element: <Inbox></Inbox>
+            },
+            {
+                path: '/dashboard/manageNotice',
+                element: <ManageNotice></ManageNotice>
+            },
+            {
+                path: '/dashboard/manageNewsAndEvents',
+                element: <ManageNewsAndEvents></ManageNewsAndEvents>
+            },
+            {
+                path: '/dashboard/manageCountDown',
+                element: <Dashboard></Dashboard>
+            },
+            
         ]
     }
 ])

@@ -5,6 +5,7 @@ import app from "../../../Firebase/firebase.init";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import { toast } from "react-hot-toast";
  const auth = getAuth(app);
 
 const Register = () => {
@@ -13,6 +14,7 @@ const Register = () => {
   const verifyEmail = () => {
     sendEmailVerification(auth.currentUser)
     .then( () => {
+      toast('Sending Email')
       alert("a verification email is sent to your inbox .Cheak your email inbox and span folder")
     })
   }
@@ -22,15 +24,21 @@ const Register = () => {
     handleSubmit, reset 
   } = useForm();
 
-  const {createUser} = useContext(AuthContext)
+  const {createUser, updateUser} = useContext(AuthContext)
   const onSubmit = (data) => {
     // console.log(data)
 
     createUser(data.email, data.password)
     .then((result) => {
         verifyEmail();
-        console.log(result.user);
-        console.log("successful")
+       const userInfo = {
+        displayName: data.name,
+      }
+      updateUser(userInfo)
+      .then(() => {})
+      .catch((error) => console.log(error))
+      console.log(result.user);
+      toast('User created succesfully');
     })
     .catch((error) => {
       // console.log(error.code, error.message);
@@ -55,6 +63,16 @@ const Register = () => {
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input type="text"
+              className="input input-bordered"
+              {...register("name", { required: "Name is required"})}
+              aria-invalid={errors.name ? "true" : "false"}
+            />
+            {errors.name && <p className="text-red-600 text-xs">{errors.name?.message}</p>}
+
             <label className="label">
               <span className="label-text">Email</span>
             </label>

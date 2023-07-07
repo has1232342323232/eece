@@ -1,69 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Individual from "./Individuals/Individual";
+import { useState } from "react";
 
 const Teachers = () => {
-  const cardData = [
-    {
-      _id: 1,
-      title: "Card 1",
-      description: "Description for Card 1",
-      imageUrl: "image1.jpg",
-    },
-    {
-      _id: 2,
-      title: "Card 2",
-      description: "Description for Card 2",
-      imageUrl: "image2.jpg",
-    },
-    {
-      _id: 3,
-      title: "Card 1",
-      description: "Description for Card 1",
-      imageUrl: "image1.jpg",
-    },
-    {
-      _id: 4,
-      title: "Card 2",
-      description: "Description for Card 2",
-      imageUrl: "image2.jpg",
-    },
-    {
-      _id: 5,
-      title: "Card 1",
-      description: "Description for Card 1",
-      imageUrl: "image1.jpg",
-    },
-    {
-      _id: 6,
-      title: "Card 2",
-      description: "Description for Card 2",
-      imageUrl: "image2.jpg",
-    },
-    {
-      _id: 7,
-      title: "Card 1",
-      description: "Description for Card 1",
-      imageUrl: "image1.jpg",
-    },
-    {
-      _id: 8,
-      title: "Card 2",
-      description: "Description for Card 2",
-      imageUrl: "image2.jpg",
-    },
-    {
-      _id: 9,
-      title: "Card 1",
-      description: "Description for Card 1",
-      imageUrl: "image1.jpg",
-    },
-    {
-      _id: 10,
-      title: "Card 2",
-      description: "Description for Card 2",
-      imageUrl: "image2.jpg",
-    },
-  ];
+ 
+
+const [cardData, setCardData] = useState([]);
+  useEffect(() =>{
+       fetch('http://localhost:5000/teachers')
+       .then(res => res.json())
+       .then(data => {
+        setCardData(data)
+       })
+  }, [])
+  if (!cardData[0]) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <span className="loading loading-spinner text-primary"></span>
+      </div>
+    );
+  };
   return (
     <div>
       <h1 className="text-3xl p-4 text-center">Honorable Teachers</h1>
@@ -71,9 +27,10 @@ const Teachers = () => {
         {cardData.map((card, index) => (
           <Individual
             id={card._id}
-            title={card.title}
-            description={card.description}
-            imageUrl={card.imageUrl}
+            key={index}
+            name={card.name}
+            photoUrl={card.photoUrl}
+            post={card.post}
           />
         ))}
       </div>

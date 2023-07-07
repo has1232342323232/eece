@@ -2,12 +2,17 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import app from "../../Firebase/firebase.init";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import { toast } from "react-hot-toast";
  const auth = getAuth(app);
 
 const Register = () => {
-  const [successStatus, setSuccessStatus] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/';
+
   const [firebaseError, setFirebaseError]  = useState('');
   const [userEmail, setUserEmail]  = useState('');
   // console.log(firebaseError);
@@ -24,36 +29,22 @@ const Register = () => {
   const {signIn} = useContext(AuthContext);
 
   const onSubmit = (data) => {
-    // console.log(data)
-    // setSuccessStatus(false);
+
     signIn(data.email, data.password)
     .then((result) => {
       const user = result.user;
-      setSuccessStatus(true);
       setFirebaseError('');
       console.log(user)
+      toast.success('Signed in')
+      navigate(from, {replace: true});
     })
     .catch((error) => {
       console.log(error.message);
       setFirebaseError(error.message)
-      // setSuccessStatus(false);
-      // window.location.reload();
       reset();
     })
   };
 
-
-
-  const handleSignOut = () => {
-       signOut(auth)
-       .then(() => {
-          setSuccessStatus(false)
-        
-       })
-       .catch((error) => {
-        // error message
-       })
-  }
   const handleBlur = event => {
     setUserEmail(event.target.value);
     console.log(event.target.value)  
@@ -62,7 +53,7 @@ const Register = () => {
   const handleForgetPassword = () => {
       sendPasswordResetEmail(auth, userEmail)
       .then(() => {
-        alert('Password reset succesful')
+        toast('Password reset email send, chek your inbox or spam message')
         setFirebaseError('')
       })
       .catch((error) => {
@@ -117,7 +108,6 @@ const Register = () => {
       </div>
     </form>
     <div>
-     {successStatus ? (<p>Succesfully signed in</p>, <button className="btn bg-custom-pink hover:bg-hover-color" onClick={handleSignOut}>Sign Out</button>) : (<p>Successfully signed out</p>)}
     </div>
     </div>
   );

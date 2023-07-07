@@ -1,10 +1,35 @@
-import React from 'react';
-import './ContactUs.css';
+import React from "react";
+import "./ContactUs.css";
+import { toast } from "react-hot-toast";
 
 const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const message = e.target.message.value;
+    const contactMessage = {
+      name: name,
+      email: email,
+      message: message,
+    };
+    console.log(contactMessage);
+
+    fetch("http://localhost:5000/messageCollection", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(contactMessage),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          console.log(data);
+          toast.success("Message sent successful");
+        }
+      });
   };
 
   return (
@@ -28,7 +53,9 @@ const ContactUs = () => {
           <textarea id="message" name="message" rows="5" required></textarea>
         </div>
 
-        <button type="submit" className="submit-button">Send Message</button>
+        <button type="submit" className="submit-button">
+          Send Message
+        </button>
       </form>
     </div>
   );

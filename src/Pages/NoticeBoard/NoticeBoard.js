@@ -10,8 +10,17 @@ const NoticeBoard = () => {
     { id: 4, title: "Important Announcement 4", date: "2023-06-23" },
     { id: 5, title: "Important Announcement 5", date: "2023-06-25" },
     { id: 6, title: "Important Announcement 6", date: "2023-06-27" },
-    // Add more notices as needed
   ];
+
+  // [
+  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-23" },
+  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-25" },
+  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-27" },
+  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-23" },
+  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-25" },
+  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-27" },
+  // ]
+
 
   const [currentNoticeIndex, setCurrentNoticeIndex] = useState(0);
 
