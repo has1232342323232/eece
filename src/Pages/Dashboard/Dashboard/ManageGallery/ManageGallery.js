@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
 
-const ManageNewsAndEvents = () => {
+const ManageGallery = () => {
   const {
     register,
     handleSubmit,
@@ -39,25 +39,13 @@ const ManageNewsAndEvents = () => {
   };
 
   const onSubmit = (data) => {
-
-
-    const currentDate = new Date();
-
-    const day = String(currentDate.getDate()).padStart(2, "0");
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Adding 1 to month as it is zero-based
-    const year = currentDate.getFullYear();
-
-    const formattedDate = `${day}-${month}-${year}`;
-
-
     const user_data = {
-      date: formattedDate,
       title: data.title,
       imgUrl: imageUrl,
     };
 
     if (user_data?.imgUrl) {
-      fetch("http://localhost:5000/allNewsAndEvents", {
+      fetch("http://localhost:5000/galleryImage", {
         method: "POST",
         body: JSON.stringify(user_data),
         headers: {
@@ -75,32 +63,31 @@ const ManageNewsAndEvents = () => {
     }
   };
 
-  const [allNoticeData, setAllNoticeData] = useState([]);
+  const [allImage, setAllImage] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allNewsAndEvents")
+    fetch("http://localhost:5000/galleryImage")
       .then((res) => res.json())
       .then((data) => {
         console.log("data of all image", data);
-        setAllNoticeData(data);
+        setAllImage(data);
       });
   }, []);
 
   const handleDelete = (id) => {
     console.log(id);
     if (id) {
-      fetch(`http://localhost:5000/allNewsAndEvents/${id}`, {
+      fetch(`http://localhost:5000/galleryImage/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => console.log(data));
     }
   };
-
   return (
     <div>
       <h1 className="text-3xl text-center text-custom-pink p-10">
-        Manage News And Events Section
+        Manage Gallery Section
       </h1>
       <form
         className="flex items-center justify-center"
@@ -155,16 +142,15 @@ const ManageNewsAndEvents = () => {
         </div>
       </form>
       <br />
-      <div className="divider text-2xl">All News And Events</div>
+      <div className="divider text-2xl">All Images</div>
       <br /> <br />
-      {allNoticeData ? (
+      {allImage ? (
         <div className="overflow-x-auto">
           <table className="table table-zebra">
             {/* head */}
             <thead>
               <tr>
                 <th>No</th>
-                <th>Date(dd-mm-yyyy)</th>
                 <th>Title</th>
                 <th>Image</th>
                 <th>Delete</th>
@@ -172,10 +158,9 @@ const ManageNewsAndEvents = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {allNoticeData.map((data, index) => (
+              {allImage.map((data, index) => (
                 <tr>
                   <td>{index + 1}</td>
-                  <td>{data?.date}</td>
                   <td>{data.title}</td>
                   <td className="w-2/6 w-1/5">
                     {" "}
@@ -204,4 +189,4 @@ const ManageNewsAndEvents = () => {
   );
 };
 
-export default ManageNewsAndEvents;
+export default ManageGallery;

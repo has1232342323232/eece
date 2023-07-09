@@ -3,24 +3,16 @@ import "./NoticeBoard.css"; // Import CSS file for styling
 import { Link } from "react-router-dom";
 
 const NoticeBoard = () => {
-  const notices = [
-    { id: 1, title: "Important Announcement 1", date: "2023-06-23" },
-    { id: 2, title: "Important Announcement 2", date: "2023-06-25" },
-    { id: 3, title: "Important Announcement 3", date: "2023-06-27" },
-    { id: 4, title: "Important Announcement 4", date: "2023-06-23" },
-    { id: 5, title: "Important Announcement 5", date: "2023-06-25" },
-    { id: 6, title: "Important Announcement 6", date: "2023-06-27" },
-  ];
 
-  // [
-  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-23" },
-  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-25" },
-  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-27" },
-  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-23" },
-  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-25" },
-  //   { title: "EECE(2018-2019) form fill up", date: "2023-06-27" },
-  // ]
 
+  const [notices, setNotices] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5000/allNotice')
+    .then(res => res.json())
+    .then(data => {
+        setNotices(data);
+    })
+  }, [])
 
   const [currentNoticeIndex, setCurrentNoticeIndex] = useState(0);
 
@@ -42,14 +34,16 @@ const NoticeBoard = () => {
           <ul className="notice-list">
             {notices.map((notice, index) => (
               <li
-                key={notice.id}
+                key={notice._id}
                 className={`notice ${
                   index === currentNoticeIndex ? "active" : ""
                 }`}
               >
                 <h3>{notice.title}</h3>
                 <p>{notice.date}</p>
+                <div className="divider"></div>
               </li>
+              
             ))}
           </ul>
         </div>

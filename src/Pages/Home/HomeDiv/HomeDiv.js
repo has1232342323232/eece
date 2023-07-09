@@ -4,7 +4,7 @@ import image1 from '../../../Assets/images/2.jpg'
 
 const HomeDiv = () => {
   return (
-    <div className="hero  min-h-screen ">
+    <div className="hero pt-10">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img src={image1} className="max-w-lg rounded-lg shadow-2xl" alt="" />
         <div>

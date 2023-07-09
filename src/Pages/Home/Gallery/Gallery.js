@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import './Gallery.css';
-import image5 from '../../../Assets/images/pust lake.jpg';
+import { useEffect } from 'react';
 
 const Gallery = () => {
-  const images = [
-    { id: 1, src: image5, title: 'PUST Lake' },
-    { id: 2, src: image5, title: 'PUST Lake' },
-    { id: 3, src: image5, title: 'PUST Lake' },
-    { id: 4, src: image5, title: 'PUST Lake' },
-    { id: 5, src: image5, title: 'PUST Lake' },
-    { id: 7, src: image5, title: 'PUST Lake' },
-    { id: 8, src: image5, title: 'PUST Lake' },
-    { id: 9, src: image5, title: 'PUST Lake' },
-  ];
+  const [images, setimages] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/galleryImage")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data of all image", data);
+        setimages(data);
+      });
+  }, []);
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -44,11 +44,11 @@ const Gallery = () => {
       <div className="image-grid">
         {displayedImages.map((image) => (
           <div
-            key={image.id}
-            className="image-item "
+            key={image._id}
+            className="image-item"
             onClick={() => openLightbox(image)}
           >
-            <img src={image.src} alt={image.title} />
+            <img className='w-1/6' src={image.imgUrl} alt={image.title} />
             <p>{image.title}</p>
           </div>
         ))}
@@ -57,7 +57,7 @@ const Gallery = () => {
       {lightboxOpen && (
         <div className="lightbox open" onClick={closeLightbox}>
           <div className="lightbox-content">
-            <img src={selectedImage.src} alt={selectedImage.title} />
+            <img src={selectedImage.imgUrl} alt={selectedImage.title} />
             <p>{selectedImage.title}</p>
             <span className="close-btn" onClick={closeLightbox}>
               &times;

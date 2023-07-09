@@ -50,6 +50,7 @@ const TeachersDetail = () => {
               Pabna University of Science and Technology <br />
               Pabna, Bangladesh
             </h2>
+            <div className="divider text-2xl">Personal Information</div>
             <div className="py-6">
               <h1 className="text-custom-pink text-xl">Biography</h1>
               <p className="text-justify text-base">{card.biography}</p>
@@ -58,7 +59,9 @@ const TeachersDetail = () => {
         </div>
       </div>
       <div className="p-4">
-        <h1 className="text-2xl text-custom-pink">Contact Information</h1>
+      <div className="divider text-2xl">Others Details</div>
+
+        <h1 className="text-xl text-custom-pink">Contact Information</h1>
         <div>
           <FontAwesomeIcon
             icon={faPhone}

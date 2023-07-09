@@ -22,7 +22,11 @@ const [cardData, setCardData] = useState([]);
   };
   return (
     <div>
+      <br/>
       <h1 className="text-3xl p-4 text-center">Honorable Teachers</h1>
+      <br/><br/>
+      <div className="divider text-xl">All Teachers list are there</div>
+      <br/><br/>
       <div className="grid grid-cols-3 gap-4 justify-center">
         {cardData.map((card, index) => (
           <Individual

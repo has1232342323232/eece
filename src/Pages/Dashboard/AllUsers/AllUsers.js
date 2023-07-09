@@ -1,18 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import InboxIndividual from "../Inbox/InboxIndividual";
 import { toast } from "react-hot-toast";
-import InboxIndividual from "./InboxIndividual";
+import IndividualUser from "./IndividualUser/IndividualUser";
 
-const Inbox = () => {
+const AllUsers = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/messageCollection")
+    fetch("http://localhost:5000/allRegisterUsers")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        toast.success("Data Loaded successful");
+        toast.success('Data Loaded Successful')
       });
   }, []);
 
@@ -26,20 +27,21 @@ const Inbox = () => {
 
   return (
     <div>
-        <h1 className="text-center text-3xl p-4">All Contact Us Messages</h1>
+        <h1 className="text-3xl text-center p-4">All registered Users</h1>
       <div className="grid grid-cols-2 gap-4 p-4">
         {data.map((card, index) => (
-          <InboxIndividual
+          <IndividualUser
             key={index}
+            id={card._id}
+            data={card}
             no={index}
             name={card.name}
-            email={card.email}
-            message={card.message}
-          ></InboxIndividual>
+            user_email={card.email}
+          ></IndividualUser>
         ))}
       </div>
     </div>
   );
 };
 
-export default Inbox;
+export default AllUsers;

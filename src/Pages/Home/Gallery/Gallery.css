@@ -42,8 +42,9 @@
   
   .image-item img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 150px;
+    
+    object-fit: fill;
   }
   
   .lightbox {

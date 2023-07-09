@@ -3,15 +3,16 @@ import "./NewsAndEvents.css"; // Import CSS file for styling
 import { Link } from "react-router-dom";
 
 const NewsAndEvents = () => {
-  const notices = [
-    { id: 1, title: "Important Announcement 1", date: "2023-06-23" },
-    { id: 2, title: "Important Announcement 2", date: "2023-06-25" },
-    { id: 3, title: "Important Announcement 3", date: "2023-06-27" },
-    { id: 4, title: "Important Announcement 4", date: "2023-06-23" },
-    { id: 5, title: "Important Announcement 5", date: "2023-06-25" },
-    { id: 6, title: "Important Announcement 6", date: "2023-06-27" },
-    // Add more notices as needed
-  ];
+
+
+  const [notices, setNotices] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5000/allNewsAndEvents')
+    .then(res => res.json())
+    .then(data => {
+        setNotices(data);
+    })
+  }, [])
 
   const [currentNoticeIndex, setCurrentNoticeIndex] = useState(0);
 
@@ -20,27 +21,29 @@ const NewsAndEvents = () => {
       setCurrentNoticeIndex((prevIndex) =>
         prevIndex === notices.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Interval in milliseconds (5 seconds in this example)
+    }, 2000); // Interval in milliseconds (5 seconds in this example)
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, [notices.length]);
 
   return (
     <div className="notice-board-container-main">
-        <h1 className="text-xl/8 text-custom-pink">News and Events</h1>
+        <h1 className="text-xl/8 text-custom-pink">News And Events</h1>
       <div className="notice-board-container">
         <div className="notice-board">
           <ul className="notice-list">
             {notices.map((notice, index) => (
               <li
-                key={notice.id}
+                key={notice._id}
                 className={`notice ${
                   index === currentNoticeIndex ? "active" : ""
                 }`}
               >
                 <h3>{notice.title}</h3>
                 <p>{notice.date}</p>
+                <div className="divider"></div>
               </li>
+              
             ))}
           </ul>
         </div>

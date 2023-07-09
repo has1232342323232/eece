@@ -11,19 +11,26 @@ const Home = () => {
 
   return (
     <div className='max-w-screen-sm max-w-screen-md max-w-screen-lg	max-w-screen-xl	max-w-screen-2xl	'>
+      <br/>
       <HomeDiv></HomeDiv>
       <br/><br/>
       <FancyCarousel></FancyCarousel>
       <br/><br/><br/>
+      <div className="divider text-2xl">Honorable Chairman</div>
       <MessageOfHead></MessageOfHead>
+      <div className="divider text-2xl">Notice and News</div>
       <NewsAndNotice></NewsAndNotice>
       <br/><br/><br/>
+      <div className="divider text-2xl">Important Dates</div>
       <AdminPage></AdminPage>
       <br/><br/><br/>
+      <div className="divider text-2xl">See Our Memories</div>
       <Gallery></Gallery>
       <br/><br/><br/>
+      <div className="divider text-2xl">For Any Help </div>
       <ContactUs></ContactUs>
       <br/><br/><br/>
+      <div className="divider text-2xl"></div>
     </div>
   );
 };

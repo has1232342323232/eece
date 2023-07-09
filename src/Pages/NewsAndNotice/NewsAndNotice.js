@@ -1,5 +1,4 @@
 import React from "react";
-import image6 from "../../Assets/images/chair.png";
 import NoticeBoard from "../NoticeBoard/NoticeBoard";
 import NewsAndEvents from "../NewsAndEvents/NewsAndEvents";
 const NewsAndNotice = () => {

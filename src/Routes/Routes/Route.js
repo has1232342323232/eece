@@ -17,6 +17,11 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Inbox from "../../Pages/Dashboard/Inbox/Inbox";
 import ManageNotice from "../../Pages/Dashboard/ManageNotice/ManageNotice";
 import ManageNewsAndEvents from "../../Pages/Dashboard/ManageNewsAndEvents/ManageNewsAndEvents";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import ManageCountDown from "../../Pages/Dashboard/ManageCountDown/ManageCountDown";
+import StudentDetails from "../../Pages/Dashboard/Dashboard/StudentDetails/StudentDetails";
+import Faq from "../../Pages/Dashboard/Dashboard/Faq/Faq";
+import ManageGallery from "../../Pages/Dashboard/Dashboard/ManageGallery/ManageGallery";
 
 const router = createBrowserRouter([
     {
@@ -96,8 +101,24 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/manageCountDown',
-                element: <Dashboard></Dashboard>
+                element: <ManageCountDown></ManageCountDown>
             },
+            {
+                path: '/dashboard/allUsers',
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/dashboard/studentDetails',
+                element: <StudentDetails></StudentDetails>
+            },
+            {
+                path: '/dashboard/faq',
+                element: <Faq></Faq>
+            },
+            {
+                path: '/dashboard/manageGallery',
+                element: <ManageGallery></ManageGallery>
+            }
             
         ]
     }
