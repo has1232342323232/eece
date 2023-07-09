@@ -1,11 +1,11 @@
 import React from "react";
 import HomeDiv from "../HomeDiv/HomeDiv";
-import AdminPage from "../../Admin Page/AdminPage";
 import FancyCarousel from "../FancyCarousel/FancyCarousel";
 import MessageOfHead from "../../MessageOfHead/MessageOfHead";
 import Gallery from "../Gallery/Gallery";
 import ContactUs from "../../ContactUs/ContactUs";
 import NewsAndNotice from "../../NewsAndNotice/NewsAndNotice";
+import AdminPage from "../Countdown/Admin Page/AdminPage";
 
 const Home = () => {
 

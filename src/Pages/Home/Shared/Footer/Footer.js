@@ -1,5 +1,4 @@
 import React from "react";
-import image from "../../../../Assets/images/pust.png";
 import FooterText from "./FooterText";
 
 const Footer = () => {
@@ -30,7 +29,7 @@ const Footer = () => {
           <h2 className=" text-custom-pink sm:text-lg md:text-xl lg:text-2xl">
             Dept. of EECE, PUST
           </h2>
-          <img className="w-28 md:w-32 lg:w-48" src={image} alt="" />
+          <img className="w-28 md:w-32 lg:w-48" src="https://i.ibb.co/pQchPqP/pust.png" alt="" />
         </div>
       </footer>
       <FooterText></FooterText>

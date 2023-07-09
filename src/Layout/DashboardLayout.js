@@ -15,7 +15,6 @@ const DashboardLayout = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
 
-  console.log("isAdmin", isAdmin)
 
   const handleLogOut = () => {
     logOut()

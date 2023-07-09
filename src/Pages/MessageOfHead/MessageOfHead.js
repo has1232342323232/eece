@@ -7,7 +7,7 @@ const MessageOfHead = () => {
       <div className="hero-content text-center flex-col lg:flex-row-reverse">
         <div>
         <img
-          src={chairmanSir}
+          src="https://i.ibb.co/dBr203P/saiful-sir.jpg"
           className="max-w-sm rounded-lg  shadow-2xl"
         alt=""/>
         <h1>Honorable Chairman</h1>

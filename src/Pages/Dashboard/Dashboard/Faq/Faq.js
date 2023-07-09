@@ -3,6 +3,7 @@ import React from "react";
 const Faq = () => {
   return (
     <div className="p-10">
+      <h1 className="text-custom-pink text-center text-3xl p-8">Frequently Asked Questions</h1>
       <div className="collapse collapse-arrow bg-base-200">
         <input type="radio" name="my-accordion-2" checked="checked" />
         <div className="collapse-title text-xl font-medium">

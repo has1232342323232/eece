@@ -2,9 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import image2 from '../../../Assets/images/2.jpg';
-import image3 from '../../../Assets/images/pust lake.jpg';
-import image4 from '../../../Assets/images/chair.png';
 import './FancyCarosel.css'
 
 
@@ -22,9 +19,9 @@ const FancyCarousel = () => {
   };
 
   const carouselItems = [
-    { title: 'Title 1', image: image2 },
-    { title: 'Title 2', image: image3 },
-    { title: 'Title 3', image: image3 },
+    { title: 'PUST Lake', image: 'https://i.ibb.co/JQtBjdq/pust-lake.jpg' },
+    { title: 'Front View', image: 'https://i.ibb.co/WnH4dtP/2.jpg' },
+    { title: 'Old Gate', image: 'https://i.ibb.co/T0zvZyj/campus.jpg' },
   ];
 
   return (

@@ -35,7 +35,7 @@ const Countdown = ({ targetDate }) => {
 
   return (
     <div>
-      <div >
+      <div>
         <span>{formatTime(timeRemaining.days)}</span> days{' '}
         <span>{formatTime(timeRemaining.hours)}</span> hours{' '}
         <span>{formatTime(timeRemaining.minutes)}</span> minutes{' '}
