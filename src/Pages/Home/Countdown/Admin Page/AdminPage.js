@@ -23,7 +23,7 @@ const AdminPage = () => {
     console.log(data);
 
     if (data.title && data.targetDate && data.targetTime) {
-      fetch("http://localhost:5000/countDown", {
+      fetch("https://eece-server.vercel.app/countDown", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -41,7 +41,7 @@ const AdminPage = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/countDown")
+    fetch("https://eece-server.vercel.app/countDown")
       .then((response) => response.json())
       .then((data) => {
         console.log("Get all countdown data", data);

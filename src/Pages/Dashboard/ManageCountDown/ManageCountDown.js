@@ -10,7 +10,7 @@ const ManageCountDown = () => {
   const [allNoticeData, setAllNoticeData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/countDown")
+    fetch("https://eece-server.vercel.app/countDown")
       .then((res) => res.json())
       .then((data) => {
         console.log("data of all image", data);
@@ -21,7 +21,7 @@ const ManageCountDown = () => {
   const handleDelete = (id) => {
     console.log(id);
     if (id) {
-      fetch(`http://localhost:5000/countDown/${id}`, {
+      fetch(`https://eece-server.vercel.app/countDown/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

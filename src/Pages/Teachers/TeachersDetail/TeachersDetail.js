@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 const TeachersDetail = () => {
   const [cardData, setCardData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/teachers")
+    fetch("https://eece-server.vercel.app/teachers")
       .then((res) => res.json())
       .then((data) => {
         setCardData(data);

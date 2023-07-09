@@ -6,7 +6,7 @@ const ShowAllNewsAndEvents = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/allNewsAndEvents')
+    fetch('https://eece-server.vercel.app/allNewsAndEvents')
       .then(res => res.json())
       .then(data => {
         setImages(data);

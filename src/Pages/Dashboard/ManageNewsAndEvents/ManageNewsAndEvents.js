@@ -57,7 +57,7 @@ const ManageNewsAndEvents = () => {
     };
 
     if (user_data?.imgUrl) {
-      fetch("http://localhost:5000/allNewsAndEvents", {
+      fetch("https://eece-server.vercel.app/allNewsAndEvents", {
         method: "POST",
         body: JSON.stringify(user_data),
         headers: {
@@ -78,7 +78,7 @@ const ManageNewsAndEvents = () => {
   const [allNoticeData, setAllNoticeData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allNewsAndEvents")
+    fetch("https://eece-server.vercel.app/allNewsAndEvents")
       .then((res) => res.json())
       .then((data) => {
         console.log("data of all image", data);
@@ -89,7 +89,7 @@ const ManageNewsAndEvents = () => {
   const handleDelete = (id) => {
     console.log(id);
     if (id) {
-      fetch(`http://localhost:5000/allNewsAndEvents/${id}`, {
+      fetch(`https://eece-server.vercel.app/allNewsAndEvents/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

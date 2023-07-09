@@ -8,7 +8,7 @@ const Inbox = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/messageCollection")
+    fetch("https://eece-server.vercel.app/messageCollection")
       .then((res) => res.json())
       .then((data) => {
         setData(data);

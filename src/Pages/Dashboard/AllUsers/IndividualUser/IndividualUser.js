@@ -8,7 +8,7 @@ const IndividualUser = ({ id, no, name, user_email, data }) => {
     
    const handleMakeAdmin = (id) => {
     console.log(id)
-     fetch(`http://localhost:5000/allRegisterUsers/admin/${id}`, {
+     fetch(`https://eece-server.vercel.app/allRegisterUsers/admin/${id}`, {
         method: 'PUT',
         body: JSON.stringify(email),
         headers: {

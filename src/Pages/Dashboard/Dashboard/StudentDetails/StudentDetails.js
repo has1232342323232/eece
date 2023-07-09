@@ -11,7 +11,7 @@ const StudentDetails = () => {
   const [isAdmin] = useAdmin(user?.email);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allRegisterUsers/${user?.email}`)
+    fetch(`https://eece-server.vercel.app/allRegisterUsers/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("students", data);

@@ -9,7 +9,7 @@ const AllUsers = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allRegisterUsers")
+    fetch("https://eece-server.vercel.app/allRegisterUsers")
       .then((res) => res.json())
       .then((data) => {
         setData(data);

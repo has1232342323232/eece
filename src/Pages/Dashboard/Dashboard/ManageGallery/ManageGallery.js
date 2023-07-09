@@ -45,7 +45,7 @@ const ManageGallery = () => {
     };
 
     if (user_data?.imgUrl) {
-      fetch("http://localhost:5000/galleryImage", {
+      fetch("https://eece-server.vercel.app/galleryImage", {
         method: "POST",
         body: JSON.stringify(user_data),
         headers: {
@@ -66,7 +66,7 @@ const ManageGallery = () => {
   const [allImage, setAllImage] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/galleryImage")
+    fetch("https://eece-server.vercel.app/galleryImage")
       .then((res) => res.json())
       .then((data) => {
         console.log("data of all image", data);
@@ -77,7 +77,7 @@ const ManageGallery = () => {
   const handleDelete = (id) => {
     console.log(id);
     if (id) {
-      fetch(`http://localhost:5000/galleryImage/${id}`, {
+      fetch(`https://eece-server.vercel.app/galleryImage/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

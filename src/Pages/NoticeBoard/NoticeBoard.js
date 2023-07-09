@@ -7,7 +7,7 @@ const NoticeBoard = () => {
 
   const [notices, setNotices] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/allNotice')
+    fetch('https://eece-server.vercel.app/allNotice')
     .then(res => res.json())
     .then(data => {
         setNotices(data);

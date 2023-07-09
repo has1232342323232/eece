@@ -6,7 +6,7 @@ const useAdmin = (email) => {
     const [isAdmin, setIsAdmin] = useState(false);
     useEffect(() => {
             if (email) {
-                fetch(`http://localhost:5000/allRegisterUsers/admin/${email}`)
+                fetch(`https://eece-server.vercel.app/allRegisterUsers/admin/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)

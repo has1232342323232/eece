@@ -6,7 +6,7 @@ const Gallery = () => {
   const [images, setimages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/galleryImage")
+    fetch("https://eece-server.vercel.app/galleryImage")
       .then((res) => res.json())
       .then((data) => {
         console.log("data of all image", data);

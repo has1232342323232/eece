@@ -59,7 +59,7 @@ const Register = () => {
       }
          
       // send data to the server
-     fetch('http://localhost:5000/allRegisterUsers', {
+     fetch('https://eece-server.vercel.app/allRegisterUsers', {
       method: 'POST',
       body: JSON.stringify(registeredUser),
       headers: {

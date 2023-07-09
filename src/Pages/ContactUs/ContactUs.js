@@ -16,7 +16,7 @@ const ContactUs = () => {
     };
     console.log(contactMessage);
 
-    fetch("http://localhost:5000/messageCollection", {
+    fetch("https://eece-server.vercel.app/messageCollection", {
       method: "POST",
       headers: {
         "content-type": "application/json",
