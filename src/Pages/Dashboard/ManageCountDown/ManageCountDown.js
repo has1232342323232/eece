@@ -32,7 +32,7 @@ const ManageCountDown = () => {
   return (
     <div>
       <h1 className="text-3xl text-center text-custom-pink p-10">
-        Manage NCount Down Section 
+        Manage Countdown Section 
       </h1>
  
       <br />
@@ -45,6 +45,7 @@ const ManageCountDown = () => {
             <thead>
               <tr>
                 <th>No</th>
+                <th>Title</th>
                 <th>End Date</th>
                 <th>End Time</th>
                 <th>Delete</th>

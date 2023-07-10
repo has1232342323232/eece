@@ -16,6 +16,10 @@ const NewsAndEvents = () => {
 
   const [currentNoticeIndex, setCurrentNoticeIndex] = useState(0);
 
+  const handleSeeAll = () => {
+    window.location.href ="/showAllNewsAndEvents"
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentNoticeIndex((prevIndex) =>
@@ -31,7 +35,7 @@ const NewsAndEvents = () => {
         <h1 className="text-xl/8 text-custom-pink">News And Events</h1>
       <div className="notice-board-container">
         <div className="notice-board">
-          <ul className="notice-list">
+          <ul onClick={handleSeeAll} className="notice-list">
             {notices.map((notice, index) => (
               <li
                 key={notice._id}
