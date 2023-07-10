@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import InboxIndividual from "../Inbox/InboxIndividual";
 import { toast } from "react-hot-toast";
 import IndividualUser from "./IndividualUser/IndividualUser";
 
@@ -16,6 +15,8 @@ const AllUsers = () => {
         toast.success('Data Loaded Successful')
       });
   }, []);
+
+  
 
   if (!data[0]) {
     return (

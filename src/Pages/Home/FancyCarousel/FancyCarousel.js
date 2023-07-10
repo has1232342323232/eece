@@ -21,7 +21,7 @@ const FancyCarousel = () => {
   const carouselItems = [
     { title: 'PUST Lake', image: 'https://i.ibb.co/JQtBjdq/pust-lake.jpg' },
     { title: 'Front View', image: 'https://i.ibb.co/WnH4dtP/2.jpg' },
-    { title: 'Old Gate', image: 'https://i.ibb.co/T0zvZyj/campus.jpg' },
+    { title: 'PUST Lake', image: 'https://i.ibb.co/JQtBjdq/pust-lake.jpg' },
   ];
 
   return (
