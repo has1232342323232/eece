@@ -155,7 +155,7 @@ const ManageNotice = () => {
         </div>
       </form>
       <br />
-      <div className="divider text-2xl">All Images</div>
+      <div className="divider text-2xl">All Notices</div>
       <br /> <br />
       {allNoticeData ? (
         <div className="overflow-x-auto">
